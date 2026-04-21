@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { FormFlow } from '../../components/FormFlow/FormFlow'
 import { Button } from '../../components/Button/Button'
@@ -95,7 +95,7 @@ export default function ListingDescriptionAI() {
     generateState === 'loading'   ? 'Generating...'   :
     generateState === 'generated' ? 'Regenerate'      :
     generateState === 'error'     ? 'Try again'       :
-    'Generate with AI'
+    'Draft with AI'
 
   const aiButtonIcon =
     generateState === 'loading' ? <SpinnerIcon /> :
@@ -170,12 +170,12 @@ export default function ListingDescriptionAI() {
 
           {/* AI Generate button */}
           <Button
-            variant="subtle"
+            variant="primary"
+            size="small"
             label={aiButtonLabel}
             leftIcon={aiButtonIcon}
             disabled={isGenerating}
             onClick={handleGenerate}
-            className="w-full"
           />
 
           {/* Error message */}
