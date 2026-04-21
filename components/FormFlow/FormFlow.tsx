@@ -52,7 +52,7 @@ export const FormFlow: React.FC<FormFlowProps> = ({
   className = '',
 }) => {
   return (
-    <div className={['flex flex-col h-screen bg-[var(--color-bg-primary)]', className].filter(Boolean).join(' ')}>
+    <div className={['flex flex-col h-[100dvh] overflow-hidden bg-[var(--color-bg-primary)]', className].filter(Boolean).join(' ')}>
 
       {/* Header zone — pinned to top */}
       <div className="shrink-0">
