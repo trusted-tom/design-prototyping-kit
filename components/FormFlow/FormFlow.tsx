@@ -5,15 +5,20 @@ import { Button } from '../Button/Button'
 export interface FormFlowProps {
   title?: string
   showTitle?: boolean
+  subtext?: string
+  showSubtext?: boolean
   showBack?: boolean
   showClose?: boolean
   onBack?: () => void
   onClose?: () => void
   showRightIconAction1?: boolean
   onRightAction1?: () => void
+  progressPercent?: number
   children: React.ReactNode
   primaryLabel?: string
   primaryVariant?: 'accent' | 'primary'
+  primaryDisabled?: boolean
+  primaryRightIcon?: React.ReactNode
   onPrimary?: () => void
   secondaryLabel?: string
   showSecondary?: boolean
@@ -25,15 +30,20 @@ export interface FormFlowProps {
 export const FormFlow: React.FC<FormFlowProps> = ({
   title,
   showTitle = false,
+  subtext,
+  showSubtext = false,
   showBack = false,
   showClose = false,
   onBack,
   onClose,
   showRightIconAction1 = false,
   onRightAction1,
+  progressPercent,
   children,
   primaryLabel = 'Continue',
   primaryVariant = 'primary',
+  primaryDisabled = false,
+  primaryRightIcon,
   onPrimary,
   secondaryLabel,
   showSecondary = false,
@@ -50,6 +60,8 @@ export const FormFlow: React.FC<FormFlowProps> = ({
           state="scrolled"
           showTitle={showTitle}
           title={title}
+          showSubtext={showSubtext}
+          subtext={subtext}
           showBack={showBack}
           showClose={showClose}
           onBack={onBack}
@@ -57,6 +69,14 @@ export const FormFlow: React.FC<FormFlowProps> = ({
           showRightIconAction1={showRightIconAction1}
           onRightAction1={onRightAction1}
         />
+        {progressPercent !== undefined && (
+          <div className="h-[4px] bg-[var(--colour-grey-200)]">
+            <div
+              className="h-full bg-[var(--colour-primary-700)] transition-all duration-300"
+              style={{ width: `${progressPercent}%` }}
+            />
+          </div>
+        )}
       </div>
 
       {/* Content zone — scrolls independently */}
@@ -70,6 +90,8 @@ export const FormFlow: React.FC<FormFlowProps> = ({
           label={primaryLabel}
           variant={primaryVariant}
           size="large"
+          disabled={primaryDisabled}
+          rightIcon={primaryRightIcon}
           onClick={onPrimary}
           className="w-full"
         />

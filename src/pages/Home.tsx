@@ -45,9 +45,7 @@ export const Home: React.FC = () => (
           <h2 className="text-colour-primary-700 font-semibold m-0" style={{ fontSize: 'var(--font-size-base)', lineHeight: 'var(--line-height-7)' }}>
             Prototypes
           </h2>
-          <p className="text-colour-grey-700 m-0" style={{ fontSize: 'var(--font-size-sm)' }}>
-            No prototypes yet — add yours to /prototypes/
-          </p>
+          <NavCard label="Listing Description — AI Generate" to="/prototypes/listing-description-ai" />
         </section>
 
         <div className="pt-[var(--space-lg)] border-t border-[var(--color-border-subtle)]">
