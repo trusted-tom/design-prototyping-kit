@@ -204,6 +204,32 @@ into /components/, ALWAYS:
 - ALWAYS confirm before pushing to any branch
 - If the designer hasn't committed in a while, remind them
 
+## Adding a route for your prototype
+
+Every prototype must have its own route so it can be shared via a URL.
+
+When a designer creates a new prototype, Claude Code must:
+
+1. Create the prototype in:
+     /prototypes/[name]-[feature]/index.tsx
+
+2. Add a route in App.tsx:
+     <Route
+       path="/prototypes/[name]-[feature]"
+       element={<YourPrototype />}
+     />
+
+3. Add a card to the Home page index in /src/pages/Home.tsx
+   so the prototype appears in the kit landing page.
+
+4. The shareable URL will be:
+     https://trusted-tom.github.io/design-prototyping-kit/
+     #/prototypes/[name]-[feature]
+
+Designers share this URL directly — no build step needed
+if GitHub Pages is already deployed. To update the live
+site after adding a prototype run: npm run deploy
+
 ## Form Flow Patterns
 
 All multi-step forms and single page form screens must use the
