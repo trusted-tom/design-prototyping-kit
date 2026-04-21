@@ -147,6 +147,22 @@ export default function ListingDescriptionAI() {
         <div className="flex flex-col gap-[var(--space-md)]">
 
           {/* Textarea with character counter */}
+          {/* AI Generate button */}
+          <Button
+            variant="primary"
+            size="small"
+            label={aiButtonLabel}
+            leftIcon={aiButtonIcon}
+            disabled={isGenerating}
+            onClick={handleGenerate}
+            className="self-start"
+          />
+
+          {/* Error message */}
+          {generateState === 'error' && (
+            <BodySubtle error>Something went wrong. Please try again.</BodySubtle>
+          )}
+
           <div className="relative">
             <span
               className="absolute top-[var(--space-sm)] right-[var(--space-md)] text-[var(--font-size-xs)] pointer-events-none z-10 leading-none"
@@ -179,22 +195,6 @@ export default function ListingDescriptionAI() {
 
           {/* Helper text */}
           <BodySubtle error={textareaIsError}>Min 50 characters</BodySubtle>
-
-          {/* AI Generate button */}
-          <Button
-            variant="primary"
-            size="small"
-            label={aiButtonLabel}
-            leftIcon={aiButtonIcon}
-            disabled={isGenerating}
-            onClick={handleGenerate}
-            className="self-start"
-          />
-
-          {/* Error message */}
-          {generateState === 'error' && (
-            <BodySubtle error>Something went wrong. Please try again.</BodySubtle>
-          )}
 
         </div>
 
