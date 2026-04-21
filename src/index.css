@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@import "../tokens/tokens.css";
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: var(--font-family-sans);
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@utility text-colour-white {
+  color: var(--colour-base-white);
+}
+
+@utility text-colour-primary-900 {
+  color: var(--colour-primary-900);
+}
+
+@utility text-colour-grey-500 {
+  color: var(--colour-grey-500);
+}
+
+@utility text-colour-grey-700 {
+  color: var(--colour-grey-700);
+}

@@ -1,0 +1,235 @@
+/* =============================================================================
+   TrustedHousesitters Design Tokens
+   ============================================================================= */
+
+:root {
+
+  /* ---------------------------------------------------------------------------
+     Colour — Foundation scales
+     Use semantic tokens in components, not these directly.
+  --------------------------------------------------------------------------- */
+
+  /* Primary: Trusty Teal */
+  --colour-primary-50:  #f0fdfa;
+  --colour-primary-100: #e8fae9;
+  --colour-primary-500: #00a69b;
+  --colour-primary-700: #006263;
+  --colour-primary-900: #003939;
+  --colour-primary-950: #001f1f;
+
+  /* Accent: Llamazing Lilac */
+  --colour-accent-100: #ede5ff;
+  --colour-accent-300: #c9a8ff;
+  --colour-accent-500: #5a35d6;
+  --colour-accent-700: #391e94;
+
+  /* Highlight: Tennis Ball Green */
+  --colour-highlight-100: #f5fbd6;
+  --colour-highlight-300: #e0f280;
+  --colour-highlight-500: #c9e94f;
+  --colour-highlight-600: #c2e24b;
+
+  /* Neutral Grey */
+  --colour-grey-50:  #fbfaf9;
+  --colour-grey-200: #e6e6e6;
+  --colour-grey-400: #ada5a0;
+  --colour-grey-500: #9a948e;
+  --colour-grey-700: #657373;
+  --colour-grey-900: #392b39;
+
+  /* Status: Error */
+  --colour-error-100: #ffe5ea;
+  --colour-error-500: #b00020;
+  --colour-error-700: #800014;
+
+  /* Status: Success */
+  --colour-success-100: #dcfce7;
+  --colour-success-500: #22c55e;
+  --colour-success-700: #15803d;
+
+  /* Status: Warning */
+  --colour-warning-100: #fef3c7;
+  --colour-warning-500: #f59e0b;
+  --colour-warning-700: #b45309;
+
+  /* Status: Info */
+  --colour-info-100: #dbeafe;
+  --colour-info-500: #3b82f6;
+  --colour-info-700: #1d4ed8;
+
+  /* Base */
+  --colour-base-white:       #ffffff;
+  --colour-base-black:       #000000;
+  --colour-base-focus:       #2cb0dc;
+  --colour-base-input-focus: #005fcc;
+
+
+  /* ---------------------------------------------------------------------------
+     Colour — Semantic (light mode)
+     These are what components should reference.
+  --------------------------------------------------------------------------- */
+
+  /* Text */
+  --color-text-primary:   var(--colour-primary-900);
+  --color-text-secondary: var(--colour-grey-700);
+  --color-text-disabled:  var(--colour-grey-400);
+  --color-text-heading:   var(--colour-primary-700);
+  --color-text-error:     var(--colour-error-700);
+  --color-text-success:   var(--colour-success-700);
+  --color-text-warning:   var(--colour-warning-700);
+  --color-text-info:      var(--colour-info-700);
+  --color-text-on-dark:   var(--colour-base-white);
+
+  /* Background */
+  --color-bg-primary:      var(--colour-base-white);
+  --color-bg-secondary:    var(--colour-grey-50);
+  --color-bg-brand:        var(--colour-primary-900);
+  --color-bg-brand-subtle: var(--colour-primary-100);
+  --color-bg-error:        var(--colour-error-100);
+  --color-bg-success:      var(--colour-success-100);
+  --color-bg-warning:      var(--colour-warning-100);
+  --color-bg-info:         var(--colour-info-100);
+  --color-bg-highlight:    var(--colour-highlight-500);
+
+  /* Border */
+  --color-border-default: var(--colour-primary-900);
+  --color-border-subtle:  var(--colour-grey-200);
+  --color-border-input:   var(--colour-grey-500);
+  --color-border-focus:   var(--colour-base-input-focus);
+
+  /* Interactive */
+  --color-interactive-primary:      var(--colour-primary-900);
+  --color-interactive-disabled:     var(--colour-grey-200);
+  --color-interactive-error:        var(--colour-error-700);
+  --color-interactive-subtle:       var(--colour-base-white);
+  --color-interactive-subtle-hover: var(--colour-grey-50);
+
+  /* Icon */
+  --color-icon-default: var(--colour-primary-900);
+  --color-icon-subtle:  var(--colour-grey-700);
+  --color-icon-brand:   var(--colour-primary-500);
+  --color-icon-danger:  var(--colour-error-500);
+  --color-icon-success: var(--colour-success-500);
+  --color-icon-warning: var(--colour-warning-500);
+  --color-icon-info:    var(--colour-info-500);
+
+
+  /* ---------------------------------------------------------------------------
+     Typography
+  --------------------------------------------------------------------------- */
+
+  --font-family-sans: 'Poppins', ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Font weights */
+  --font-weight-thin:       100;
+  --font-weight-extralight: 200;
+  --font-weight-light:      300;
+  --font-weight-normal:     400;
+  --font-weight-medium:     500;
+  --font-weight-semibold:   600;
+  --font-weight-bold:       700;
+  --font-weight-extrabold:  800;
+  --font-weight-black:      900;
+
+  /* Font sizes */
+  --font-size-2xs:  10px;
+  --font-size-xs:   12px;
+  --font-size-sm:   14px;
+  --font-size-base: 16px;
+  --font-size-lg:   18px;
+  --font-size-xl:   20px;
+  --font-size-2xl:  24px;
+  --font-size-3xl:  28px;
+  --font-size-4xl:  32px;
+  --font-size-5xl:  40px;
+  --font-size-6xl:  48px;
+  --font-size-7xl:  60px;
+  --font-size-8xl:  72px;
+
+  /* Line heights */
+  --line-height-3:  12px;
+  --line-height-4:  16px;
+  --line-height-5:  20px;
+  --line-height-6:  24px;
+  --line-height-7:  28px;
+  --line-height-8:  32px;
+  --line-height-9:  36px;
+  --line-height-10: 40px;
+
+
+  /* ---------------------------------------------------------------------------
+     Spacing
+  --------------------------------------------------------------------------- */
+
+  --space-none: 0px;
+  --space-xxs:  4px;
+  --space-xs:   8px;
+  --space-sm:   12px;
+  --space-md:   16px;
+  --space-lg:   24px;
+  --space-xl:   32px;
+  --space-xxl:  48px;
+  --space-xxxl: 64px;
+
+
+  /* ---------------------------------------------------------------------------
+     Border radius
+  --------------------------------------------------------------------------- */
+
+  --radius-none: 0px;
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+  --radius-md:   5px;
+  --radius-lg:   10px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+
+
+  /* ---------------------------------------------------------------------------
+     Border width
+  --------------------------------------------------------------------------- */
+
+  --border-width-none: 0px;
+  --border-width-xs:   1px;
+  --border-width-sm:   2px;
+  --border-width-md:   3px;
+  --border-width-lg:   4px;
+
+
+  /* ---------------------------------------------------------------------------
+     Size scale (icons & components)
+  --------------------------------------------------------------------------- */
+
+  --size-xs:  16px;
+  --size-sm:  24px;
+  --size-md:  32px;
+  --size-lg:  40px;
+  --size-xl:  48px;
+  --size-2xl: 64px;
+  --size-3xl: 80px;
+  --size-4xl: 128px;
+
+
+  /* ---------------------------------------------------------------------------
+     Box shadows / Elevation
+  --------------------------------------------------------------------------- */
+
+  --shadow-none:  none;
+  --shadow-card:  rgba(0, 0, 0, 0.08) 0px 2px 8px;
+  --shadow-hover: rgba(0, 0, 0, 0.12) 0px 4px 12px;
+  --shadow-modal: rgba(0, 0, 0, 0.20) 0px 8px 24px;
+  --shadow-focus: 0 0 0 3px rgba(0, 95, 204, 0.2);
+
+
+  /* ---------------------------------------------------------------------------
+     Breakpoints
+  --------------------------------------------------------------------------- */
+
+  --breakpoint-mobile:    375px;
+  --breakpoint-mobile-lg: 640px;
+  --breakpoint-tablet:    768px;
+  --breakpoint-laptop:    1024px;
+  --breakpoint-desktop:   1280px;
+
+}
