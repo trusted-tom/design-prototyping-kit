@@ -181,8 +181,7 @@ export default function ListingDescriptionAI() {
               className="w-full outline-none font-[family-name:var(--font-family-sans)] text-base leading-[var(--line-height-7)] text-colour-primary-900 placeholder:text-colour-grey-500 rounded-[var(--radius-lg)] transition-colors duration-150 disabled:cursor-not-allowed"
               style={{
                 minHeight: '160px',
-                maxHeight: '420px',
-                overflowY: 'auto',
+                overflowY: 'hidden',
                 resize: 'none',
                 padding: 'var(--space-md)',
                 paddingTop: '36px',
