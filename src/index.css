@@ -27,3 +27,7 @@
 @utility text-colour-grey-700 {
   color: var(--colour-grey-700);
 }
+
+@utility text-colour-primary-700 {
+  color: var(--colour-primary-700);
+}

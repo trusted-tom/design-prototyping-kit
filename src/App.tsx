@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from '../components/Button/Button'
 import { ActionRow } from '../components/ActionRow/ActionRow'
 import { ActionList } from '../components/ActionList/ActionList'
 import type { ActionListItem } from '../components/ActionList/ActionList'
+import { Header } from '../components/Header/Header'
+import { DescribeHome } from '../screens/DescribeHome/DescribeHome'
 
 // ---------------------------------------------------------------------------
 // State preview — renders a static button-look div for hover/focus/pressed
@@ -164,6 +166,12 @@ const listItems: ActionListItem[] = [
 // ---------------------------------------------------------------------------
 
 function App() {
+  const [activeScreen, setActiveScreen] = useState<string | null>(null)
+
+  if (activeScreen === 'describe-home') {
+    return <DescribeHome onClose={() => setActiveScreen(null)} />
+  }
+
   return (
     <div className="min-h-screen p-[var(--space-xxl)]">
       <div className="max-w-[1200px] mx-auto">
@@ -323,6 +331,118 @@ function App() {
           </p>
           <div className="rounded-[var(--radius-lg)] overflow-hidden border border-[var(--color-border-subtle)] max-w-[480px]">
             <ActionList items={listItems} />
+          </div>
+        </div>
+
+        {/* ----------------------------------------------------------------- */}
+        {/* Header */}
+        {/* ----------------------------------------------------------------- */}
+        <div className="mt-[var(--space-xxl)]">
+          <h2 className="text-[var(--font-size-2xl)] font-semibold text-[var(--color-text-heading)] mb-[var(--space-xs)]">
+            Header
+          </h2>
+          <p className="text-[var(--font-size-sm)] text-[var(--color-text-secondary)] mb-[var(--space-lg)]">
+            Two appearances (default / inverse) × two states (default / scrolled). Right actions are hidden on inverse.
+          </p>
+
+          <div className="flex flex-col gap-[var(--space-md)] max-w-[640px]">
+
+            {/* 1 — Default / default state, with title */}
+            <div>
+              <p className="text-[var(--font-size-xs)] font-semibold text-[var(--color-text-secondary)] uppercase tracking-wider mb-[var(--space-xs)]">
+                Default appearance — default state — with title
+              </p>
+              <div className="rounded-[var(--radius-lg)] overflow-hidden border border-[var(--color-border-subtle)]">
+                <Header
+                  appearance="default"
+                  state="default"
+                  showTitle
+                  title="Complete your profile"
+                  showSubtext
+                  subtext="Step 2 of 4"
+                  showBack
+                  showClose
+                  showRightIconAction1
+                  showRightIconAction2
+                />
+              </div>
+            </div>
+
+            {/* 2 — Default / scrolled state, with title */}
+            <div>
+              <p className="text-[var(--font-size-xs)] font-semibold text-[var(--color-text-secondary)] uppercase tracking-wider mb-[var(--space-xs)]">
+                Default appearance — scrolled state — with title
+              </p>
+              <div className="rounded-[var(--radius-lg)] overflow-hidden border border-[var(--color-border-subtle)]">
+                <Header
+                  appearance="default"
+                  state="scrolled"
+                  showTitle
+                  title="Complete your profile"
+                  showBack
+                  showClose
+                  showRightIconAction1
+                  showRightIconAction2
+                  showRightTextAction
+                  rightActionCopy="Save"
+                />
+              </div>
+            </div>
+
+            {/* 3 — Default / default state, with logo, no title */}
+            <div>
+              <p className="text-[var(--font-size-xs)] font-semibold text-[var(--color-text-secondary)] uppercase tracking-wider mb-[var(--space-xs)]">
+                Default appearance — default state — with logo
+              </p>
+              <div className="rounded-[var(--radius-lg)] overflow-hidden border border-[var(--color-border-subtle)]">
+                <Header
+                  appearance="default"
+                  state="default"
+                  showLogo
+                  showBack
+                  showClose
+                  showRightIconAction1
+                  showRightIconAction2
+                />
+              </div>
+            </div>
+
+            {/* 4 — Inverse appearance, no title */}
+            <div>
+              <p className="text-[var(--font-size-xs)] font-semibold text-[var(--color-text-secondary)] uppercase tracking-wider mb-[var(--space-xs)]">
+                Inverse appearance — default state — no title
+              </p>
+              <div className="rounded-[var(--radius-lg)] overflow-hidden">
+                <Header
+                  appearance="inverse"
+                  state="default"
+                  showBack
+                  showClose
+                  showRightIconAction1
+                  showRightIconAction2
+                />
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* ----------------------------------------------------------------- */}
+        {/* Screens */}
+        {/* ----------------------------------------------------------------- */}
+        <div className="mt-[var(--space-xxl)]">
+          <h2 className="text-[var(--font-size-2xl)] font-semibold text-[var(--color-text-heading)] mb-[var(--space-xs)]">
+            Screens
+          </h2>
+          <p className="text-[var(--font-size-sm)] text-[var(--color-text-secondary)] mb-[var(--space-lg)]">
+            Full-screen prototypes. Click to preview — use the close button to return.
+          </p>
+          <div className="flex flex-wrap gap-[var(--space-md)]">
+            <Button
+              label="Describe your home"
+              variant="secondary"
+              onClick={() => setActiveScreen('describe-home')}
+            />
           </div>
         </div>
 
