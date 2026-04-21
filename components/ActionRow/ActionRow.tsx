@@ -1,5 +1,6 @@
 import React from 'react'
 import { Tag } from '../Tag/Tag'
+import { IconChevronRight } from '../../src/icons/index'
 
 export interface ActionRowProps {
   label: string
@@ -13,18 +14,6 @@ export interface ActionRowProps {
   onClick?: () => void
   className?: string
 }
-
-const ChevronRight = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-    <path
-      d="M7.5 5L12.5 10L7.5 15"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-)
 
 export const ActionRow: React.FC<ActionRowProps> = ({
   label,
@@ -96,7 +85,7 @@ export const ActionRow: React.FC<ActionRowProps> = ({
 
       {showChevron && (
         <span className="shrink-0 text-colour-primary-900">
-          <ChevronRight />
+          <IconChevronRight />
         </span>
       )}
     </button>

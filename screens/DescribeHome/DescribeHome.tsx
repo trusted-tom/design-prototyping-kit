@@ -1,32 +1,11 @@
 import React, { useState } from 'react'
 import { FormFlow } from '../../components/FormFlow/FormFlow'
 import { SingleSelectorButton } from '../../components/SingleSelectorButton/SingleSelectorButton'
+import { IconHouse, IconApartment } from '../../src/icons/index'
 
 interface DescribeHomeProps {
   onClose?: () => void
 }
-
-// ---------------------------------------------------------------------------
-// SVG placeholders for property type icons
-// ---------------------------------------------------------------------------
-
-const HouseIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-    <path
-      d="M10 2.5L17.5 9.5V18H12.5V13.5H7.5V18H2.5V9.5L10 2.5Z"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinejoin="round"
-    />
-  </svg>
-)
-
-const ApartmentIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-    <rect x="3" y="3" width="14" height="14" rx="1" stroke="currentColor" strokeWidth="1.5" />
-    <path d="M7 8h2v2H7zM11 8h2v2h-2zM7 12h2v2H7zM11 12h2v2h-2z" fill="currentColor" />
-  </svg>
-)
 
 // ---------------------------------------------------------------------------
 // Screen
@@ -75,14 +54,14 @@ export const DescribeHome: React.FC<DescribeHomeProps> = ({ onClose }) => {
               <SingleSelectorButton
                 layout="compact"
                 label="House"
-                icon={<HouseIcon />}
+                icon={<IconHouse />}
                 selected={propertyType === 'house'}
                 onClick={() => setPropertyType('house')}
               />
               <SingleSelectorButton
                 layout="compact"
                 label="Apartment"
-                icon={<ApartmentIcon />}
+                icon={<IconApartment />}
                 selected={propertyType === 'apartment'}
                 onClick={() => setPropertyType('apartment')}
               />

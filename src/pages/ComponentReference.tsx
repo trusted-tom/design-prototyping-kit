@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { IconProfile } from '../icons/index'
 import { Button } from '../../components/Button/Button'
 import { ActionRow } from '../../components/ActionRow/ActionRow'
 import { ActionList } from '../../components/ActionList/ActionList'
@@ -117,11 +118,7 @@ const variantData: Record<string, Record<typeof states[number], StateData>> = {
 const darkBgVariants = new Set(['inverted', 'inverted-secondary'])
 const allVariants = Object.keys(variantData)
 
-const PlaceholderIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-    <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.5" />
-  </svg>
-)
+const PlaceholderIcon = () => <IconProfile />
 
 const listItems: ActionListItem[] = [
   {

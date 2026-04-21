@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { IconChevronRight } from '../icons/index'
 
 interface NavCardProps {
   label: string
@@ -13,9 +14,7 @@ const NavCard: React.FC<NavCardProps> = ({ label, to }) => (
     style={{ fontSize: 'var(--font-size-base)', textDecoration: 'none' }}
   >
     <span>{label}</span>
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <path d="M7.5 4.5L12.5 10L7.5 15.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <IconChevronRight />
   </Link>
 )
 

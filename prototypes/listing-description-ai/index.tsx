@@ -4,17 +4,7 @@ import { FormFlow } from '../../components/FormFlow/FormFlow'
 import { Button } from '../../components/Button/Button'
 import { PageTitle, BodySmall, BodySubtle, LabelBold } from './components/Typography'
 import { MOCK_GENERATED_CONTENT, SUGGEST_ITEMS } from './data'
-
-// ---------------------------------------------------------------------------
-// Icons
-// ---------------------------------------------------------------------------
-
-const SparkleIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-    <path d="M10 2L11.8 7.2L17 9L11.8 10.8L10 16L8.2 10.8L3 9L8.2 7.2L10 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-    <path d="M16 1L16.7 3.3L19 4L16.7 4.7L16 7L15.3 4.7L13 4L15.3 3.3L16 1Z" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" />
-  </svg>
-)
+import { IconWriteWithAi, IconWarning, IconChevronRight, IconCheckSmall } from '../../src/icons/index'
 
 const SpinnerIcon = () => (
   <svg
@@ -30,25 +20,6 @@ const SpinnerIcon = () => (
   </svg>
 )
 
-const WarningIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-    <path d="M10 3L18 17H2L10 3Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-    <path d="M10 9V12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    <circle cx="10" cy="14.5" r="0.75" fill="currentColor" />
-  </svg>
-)
-
-const ChevronRightIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-    <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-)
-
-const BulletIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="shrink-0">
-    <circle cx="12" cy="12" r="3" fill="var(--colour-primary-900)" />
-  </svg>
-)
 
 // ---------------------------------------------------------------------------
 // Types
@@ -107,8 +78,8 @@ export default function ListingDescriptionAI() {
 
   const aiButtonIcon =
     generateState === 'loading' ? <SpinnerIcon /> :
-    generateState === 'error'   ? <WarningIcon /> :
-    <SparkleIcon />
+    generateState === 'error'   ? <IconWarning /> :
+    <IconWriteWithAi />
 
   const textareaIsError = !isFocused && generateState === 'error'
 
@@ -130,7 +101,7 @@ export default function ListingDescriptionAI() {
       primaryLabel="Continue"
       primaryVariant="primary"
       primaryDisabled={!isContinueEnabled}
-      primaryRightIcon={<ChevronRightIcon />}
+      primaryRightIcon={<IconChevronRight />}
       onPrimary={() => {}}
     >
       <div className="flex flex-col gap-[var(--space-xl)]">
@@ -203,7 +174,7 @@ export default function ListingDescriptionAI() {
           <div className="flex flex-col gap-[var(--space-md)]">
             {SUGGEST_ITEMS.map((item, i) => (
               <div key={i} className="flex items-center gap-[var(--space-md)]">
-                <BulletIcon />
+                <IconCheckSmall className="shrink-0 text-colour-primary-900" />
                 <BodySubtle>{item}</BodySubtle>
               </div>
             ))}

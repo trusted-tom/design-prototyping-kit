@@ -1,4 +1,5 @@
 import React from 'react'
+import { IconClose, IconChevronLeft, IconMore } from '../../src/icons/index'
 
 export interface HeaderProps {
   appearance?: 'default' | 'inverse'
@@ -21,30 +22,6 @@ export interface HeaderProps {
   onRightTextAction?: () => void
   className?: string
 }
-
-// ---------------------------------------------------------------------------
-// Icons
-// ---------------------------------------------------------------------------
-
-const CloseIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-    <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-  </svg>
-)
-
-const ChevronLeftIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-    <path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-)
-
-const EllipsisIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-    <circle cx="4"  cy="10" r="1.5" fill="currentColor" />
-    <circle cx="10" cy="10" r="1.5" fill="currentColor" />
-    <circle cx="16" cy="10" r="1.5" fill="currentColor" />
-  </svg>
-)
 
 // ---------------------------------------------------------------------------
 // Internal icon button — 48×48 tap target, 20×20 icon, 10px radius
@@ -135,10 +112,10 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         )}
         {showBack && (
-          <IconBtn icon={<ChevronLeftIcon />} onClick={onBack} inverse={isInverse} label="Go back" />
+          <IconBtn icon={<IconChevronLeft />} onClick={onBack} inverse={isInverse} label="Go back" />
         )}
         {showClose && (
-          <IconBtn icon={<CloseIcon />} onClick={onClose} inverse={isInverse} label="Close" />
+          <IconBtn icon={<IconClose />} onClick={onClose} inverse={isInverse} label="Close" />
         )}
       </div>
 
@@ -155,7 +132,7 @@ export const Header: React.FC<HeaderProps> = ({
           )}
           {showSubtext && subtext && (
             <span className={[
-              'truncate max-w-full text-[var(--font-size-2xs)] font-normal leading-[var(--line-height-4)]',
+              'truncate max-w-full text-[var(--font-size-3xs)] font-normal leading-[var(--line-height-4)]',
               isInverse ? 'text-colour-white' : 'text-colour-grey-700',
             ].join(' ')}>
               {subtext}
@@ -168,10 +145,10 @@ export const Header: React.FC<HeaderProps> = ({
       {showRightZone && (
         <div className="absolute right-[10px] top-1/2 -translate-y-1/2 flex items-center">
           {showRightIconAction1 && (
-            <IconBtn icon={<EllipsisIcon />} onClick={onRightAction1} label="More options" />
+            <IconBtn icon={<IconMore />} onClick={onRightAction1} label="More options" />
           )}
           {showRightIconAction2 && (
-            <IconBtn icon={<EllipsisIcon />} onClick={onRightAction2} label="More options" />
+            <IconBtn icon={<IconMore />} onClick={onRightAction2} label="More options" />
           )}
           {showRightTextAction && (
             <button
