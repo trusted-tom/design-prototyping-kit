@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { FormFlow } from '../../components/FormFlow/FormFlow'
 import { Button } from '../../components/Button/Button'
@@ -67,11 +67,19 @@ export default function ListingDescriptionAI() {
   const [textValue, setTextValue] = useState('')
   const [generateState, setGenerateState] = useState<GenerateState>('idle')
   const [isFocused, setIsFocused] = useState(false)
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
 
   const isErrorMode = new URLSearchParams(location.search).get('error') === 'true'
   const isGenerating = generateState === 'loading'
   const characterCount = textValue.length
   const isContinueEnabled = characterCount >= 50
+
+  useEffect(() => {
+    const el = textareaRef.current
+    if (!el) return
+    el.style.height = 'auto'
+    el.style.height = `${Math.min(el.scrollHeight, 420)}px`
+  }, [textValue])
 
   useEffect(() => {
     if (generateState !== 'loading') return
@@ -147,15 +155,19 @@ export default function ListingDescriptionAI() {
               {characterCount}
             </span>
             <textarea
+              ref={textareaRef}
               value={textValue}
               onChange={e => setTextValue(e.target.value)}
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
               disabled={isGenerating}
               placeholder="Tell sitters about your home..."
-              className="w-full resize-y outline-none font-[family-name:var(--font-family-sans)] text-base leading-[var(--line-height-7)] text-colour-primary-900 placeholder:text-colour-grey-500 rounded-[var(--radius-lg)] transition-colors duration-150 disabled:cursor-not-allowed"
+              className="w-full outline-none font-[family-name:var(--font-family-sans)] text-base leading-[var(--line-height-7)] text-colour-primary-900 placeholder:text-colour-grey-500 rounded-[var(--radius-lg)] transition-colors duration-150 disabled:cursor-not-allowed"
               style={{
                 minHeight: '160px',
+                maxHeight: '420px',
+                overflowY: 'auto',
+                resize: 'none',
                 padding: 'var(--space-md)',
                 paddingTop: '36px',
                 backgroundColor: 'var(--colour-base-white)',
@@ -176,6 +188,7 @@ export default function ListingDescriptionAI() {
             leftIcon={aiButtonIcon}
             disabled={isGenerating}
             onClick={handleGenerate}
+            className="self-start"
           />
 
           {/* Error message */}
