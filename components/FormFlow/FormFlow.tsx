@@ -16,7 +16,7 @@ export interface FormFlowProps {
   progressPercent?: number
   children: React.ReactNode
   primaryLabel?: string
-  primaryVariant?: 'accent' | 'primary'
+  primaryVariant?: 'accent' | 'primary' | 'error'
   primaryDisabled?: boolean
   primaryRightIcon?: React.ReactNode
   onPrimary?: () => void

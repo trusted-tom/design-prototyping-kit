@@ -46,6 +46,7 @@ export const Home: React.FC = () => (
             Prototypes
           </h2>
           <NavCard label="Listing Description — AI Generate" to="/prototypes/listing-description-ai" />
+          <NavCard label="Cancel Sit Flow" to="/prototypes/cancel-sit-flow" />
         </section>
 
         <div className="pt-[var(--space-lg)] border-t border-[var(--color-border-subtle)]">
