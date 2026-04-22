@@ -132,7 +132,7 @@ export const Header: React.FC<HeaderProps> = ({
           )}
           {showSubtext && subtext && (
             <span className={[
-              'truncate max-w-full text-[var(--font-size-3xs)] font-normal leading-[var(--line-height-4)]',
+              'truncate max-w-full text-[10px] font-normal leading-[var(--line-height-4)]',
               isInverse ? 'text-colour-white' : 'text-colour-grey-700',
             ].join(' ')}>
               {subtext}

@@ -104,7 +104,7 @@ export default function ListingDescriptionAI() {
       primaryRightIcon={<IconChevronRight />}
       onPrimary={() => {}}
     >
-      <div className="flex flex-col gap-[var(--space-xl)]">
+      <div className="flex flex-col gap-[var(--space-md)]">
 
         {/* Page heading */}
         <div className="flex flex-col gap-[var(--space-xxs)]">
@@ -115,7 +115,7 @@ export default function ListingDescriptionAI() {
         </div>
 
         {/* Textarea + AI button */}
-        <div className="flex flex-col gap-[var(--space-md)]">
+        <div className="flex flex-col gap-[var(--space-xxl)]">
 
           {/* Textarea with character counter */}
           {/* AI Generate button */}
@@ -161,10 +161,9 @@ export default function ListingDescriptionAI() {
                 ...textareaBorder,
               }}
             />
-          </div>
-
           {/* Helper text */}
           <BodySubtle error={textareaIsError}>Min 50 characters</BodySubtle>
+          </div>
 
         </div>
 
