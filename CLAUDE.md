@@ -94,6 +94,57 @@ Wrap in a container with `overflow-hidden` and `rounded-[var(--radius-lg)]` to g
 
 ---
 
+#### Banner
+File: `components/Banner/Banner.tsx`
+Props:
+- `appearance?` — `'default' | 'error' | 'inverted'`
+- `type?` — `'no-link' | 'action-link' | 'call-to-action'`
+- `size?` — `'mobile' | 'desktop'`
+- `title?` — string
+- `description?` — string
+- `linkLabel?` — string
+- `onLinkClick?` — () => void
+- `showIcon?` — boolean
+- `showTitle?` — boolean
+- `showIllustration?` — boolean
+- `icon?` — React.ReactNode (defaults to IconInfo placeholder)
+- `className?` — string
+
+Appearances: default (warm off-white bg), error (red tint bg), inverted (dark teal bg)
+Types: no-link (text only), action-link (text link right/below), call-to-action (bold link right/below)
+Sizes: mobile (stacked link below description), desktop (link inline right of content)
+Use for: informational messages, error states, promotional banners, contextual alerts.
+Tokens: bg uses `--colour-shade-100` / `--colour-error-100` / `--colour-primary-900`; link colour on inverted uses `--colour-highlight-500`.
+
+---
+
+#### FormInterstitial
+File: `components/FormInterstitial/FormInterstitial.tsx`
+Props:
+- `showHeader?` — boolean (default true)
+- `headerTitle?` — string
+- `showBack?` / `showClose?` — boolean
+- `onBack?` / `onClose?` — () => void
+- `showProgress?` — boolean (default true)
+- `segments?` — `ProgressSegment[]` — `{ label: string; fillPercent: number }[]`
+- `title` — string (required)
+- `description` — string (required)
+- `illustration?` — React.ReactNode (slot for screen-specific imagery)
+- `primaryLabel?` — string (default 'Continue')
+- `primaryVariant?` — `'primary' | 'accent'`
+- `onPrimary?` — () => void
+- `showPrimaryIcon?` — boolean (default true, renders ChevronRight)
+- `showSecondary?` — boolean (default true)
+- `secondaryLabel?` — string (default 'Save & exit')
+- `secondaryVariant?` — `'subtle' | 'secondary'`
+- `onSecondary?` — () => void
+
+Use for: section-transition screens between form flows.
+Progress bar renders as equal-width labelled segments — completed segments fill 100%, current segment fills partially, future segments are grey.
+Pass illustration prop for screen-specific imagery — use a simple placeholder div, never recreate SVG illustrations.
+
+---
+
 ### When a component is missing
 If a designer's prototype requires a UI element that doesn't exist
 in /components/, follow this process in order:
@@ -273,3 +324,41 @@ MULTI-STEP FLOWS:
       {step === 1 && <StepOneContent />}
       {step === 2 && <StepTwoContent />}
     </FormFlow>
+
+### Interstitial screens
+Use FormInterstitial for all section-transition screens in form flows.
+Never build a custom interstitial layout.
+
+  import { FormInterstitial } from '../../components/FormInterstitial/FormInterstitial'
+
+Key rules:
+- Progress bar is optional — pass showProgress={false} to hide it
+- Pass a segments array to define tracker labels and fill amounts:
+    segments={[
+      { label: 'Home',   fillPercent: 100 },
+      { label: 'Pets',   fillPercent: 25  },
+      { label: 'About',  fillPercent: 0   },
+    ]}
+- Pass illustration prop for screen-specific imagery — use a simple
+  placeholder div or img, never recreate SVG illustrations from Figma
+- Both footer buttons are fully configurable via props
+- Interstitial page title is 32px Bold / #006263 (primary-700), 
+  larger than the standard FormFlow page title (24px)
+
+## Password Protection
+
+The GitHub Pages deployment is protected by a client-side password gate.
+The current password is shared separately from the URL.
+
+The password is stored as a SHA-256 hash in:
+  /src/components/PasswordGate/PasswordGate.tsx
+
+TO CHANGE THE PASSWORD:
+1. Generate a SHA-256 hash of your new password
+   (see instructions in PasswordGate.tsx)
+2. Replace the CORRECT_HASH constant in that file
+3. Run: npm run deploy
+
+IMPORTANT: This is client-side protection only. Do not use this to protect
+genuinely sensitive data. It is suitable for keeping prototypes private
+from casual access only.

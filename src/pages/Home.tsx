@@ -38,6 +38,7 @@ export const Home: React.FC = () => (
             Screens
           </h2>
           <NavCard label="Describe your home" to="/screens/describe-home" />
+          <NavCard label="Home and Location" to="/screens/home-and-location" />
         </section>
 
         <section className="flex flex-col gap-[var(--space-md)]">

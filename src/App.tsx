@@ -2,6 +2,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import { Home } from './pages/Home'
 import { ComponentReference } from './pages/ComponentReference'
 import { DescribeHome } from '../screens/DescribeHome/DescribeHome'
+import { HomeAndLocation } from '../screens/HomeAndLocation/HomeAndLocation'
 import ListingDescriptionAI from '../prototypes/listing-description-ai/index'
 
 function DescribeHomeRoute() {
@@ -14,6 +15,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/screens/describe-home" element={<DescribeHomeRoute />} />
+      <Route path="/screens/home-and-location" element={<HomeAndLocation />} />
       <Route path="/prototypes/listing-description-ai" element={<ListingDescriptionAI />} />
       <Route path="/reference" element={<ComponentReference />} />
     </Routes>

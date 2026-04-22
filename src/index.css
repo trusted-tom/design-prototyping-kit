@@ -31,3 +31,15 @@
 @utility text-colour-primary-700 {
   color: var(--colour-primary-700);
 }
+
+@utility text-colour-primary-100 {
+  color: var(--colour-primary-100);
+}
+
+@utility text-colour-error-700 {
+  color: var(--colour-error-700);
+}
+
+@utility text-colour-highlight-500 {
+  color: var(--colour-highlight-500);
+}

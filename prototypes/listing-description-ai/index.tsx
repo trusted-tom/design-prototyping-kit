@@ -4,7 +4,7 @@ import { FormFlow } from '../../components/FormFlow/FormFlow'
 import { Button } from '../../components/Button/Button'
 import { PageTitle, BodySmall, BodySubtle, LabelBold } from './components/Typography'
 import { MOCK_GENERATED_CONTENT, SUGGEST_ITEMS } from './data'
-import { IconWriteWithAi, IconWarning, IconChevronRight, IconCheckSmall } from '../../src/icons/index'
+import { IconWriteWithAi, IconWarning, IconChevronRight, IconHouse, IconPin, IconBed } from '../../src/icons/index'
 
 const SpinnerIcon = () => (
   <svg
@@ -168,13 +168,15 @@ export default function ListingDescriptionAI() {
         </div>
 
         {/* You could mention... */}
-        <div className="flex flex-col gap-[var(--space-md)]">
+        <div className="flex flex-col gap-[var(--space-md)] mt-[var(--space-xxl)]">
           <LabelBold>You could mention...</LabelBold>
           <div className="flex flex-col gap-[var(--space-md)]">
             {SUGGEST_ITEMS.map((item, i) => (
               <div key={i} className="flex items-center gap-[var(--space-md)]">
-                <IconCheckSmall className="shrink-0 text-colour-primary-900" />
-                <BodySubtle>{item}</BodySubtle>
+                {item.icon === 'house' && <IconHouse className="shrink-0 text-colour-primary-900" />}
+                {item.icon === 'pin'   && <IconPin   className="shrink-0 text-colour-primary-900" />}
+                {item.icon === 'bed'   && <IconBed   className="shrink-0 text-colour-primary-900" />}
+                <BodySubtle>{item.label}</BodySubtle>
               </div>
             ))}
           </div>
